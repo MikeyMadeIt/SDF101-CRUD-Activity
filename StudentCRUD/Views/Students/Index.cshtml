@@ -1,0 +1,54 @@
+
+@model IEnumerable<StudentCRUD.Models.Student>
+
+@{
+    ViewData["Title"] = "Student List";
+}
+
+<div class="container mt-4">
+    <h2>Student Records</h2>
+    <p>Manage your registered students.</p>
+
+    <a asp-action="Create" class="btn btn-primary mb-3">
+        Add New Student
+    </a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Section</th>
+                <th>Email</th>
+                <th>Branch</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.StudentId</td>
+                    <td>@student.Name</td>
+                    <td>@student.Section</td>
+                    <td>@student.EmailId</td>
+                    <td>@student.Branch</td>
+                    <td>
+                        <a asp-action="Edit"
+                           asp-route-id="@student.StudentId"
+                           class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@student.StudentId"
+                           class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

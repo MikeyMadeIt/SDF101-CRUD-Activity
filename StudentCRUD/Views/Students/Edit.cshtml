@@ -1,0 +1,56 @@
+
+@model StudentCRUD.Models.Student
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<div class="container mt-4">
+    <h2>Edit Student</h2>
+    <p>Update the student's information.</p>
+
+    <form asp-action="Edit" method="post">
+
+        <input type="hidden" asp-for="StudentId" />
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Section" class="form-label"></label>
+            <input asp-for="Section" class="form-control" />
+            <span asp-validation-for="Section"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="EmailId" class="form-label"></label>
+            <input asp-for="EmailId" class="form-control" />
+            <span asp-validation-for="EmailId"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Branch" class="form-label"></label>
+            <input asp-for="Branch" class="form-control" />
+            <span asp-validation-for="Branch"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Update Student
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Cancel
+        </a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
